@@ -1,0 +1,24 @@
+.tweeter__form--wrapper {
+    width: 500px;
+    margin: auto;
+}
+
+.tweeter__userinput {
+    width: 500px;
+    height: 10vh;
+    border: none;
+    background: #dff;
+}
+
+.tweeter__btn {
+    width: 50%;
+    margin: 0 auto;
+    border: none;
+    padding: 5px;
+    font-size: 1.1em;
+    border-radius: 50px;
+    background: #1da1fa;
+    color: white;
+    font-weight: bold;
+
+}

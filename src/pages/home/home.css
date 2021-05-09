@@ -1,0 +1,21 @@
+a {
+    text-decoration: none;
+}
+
+.btn {
+    width:200px;
+    height: 50px;
+    border-radius: 50px;
+    display: block;
+    margin: 10px auto;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    background: #aaa;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #1da1f1;
+    color: white;
+}

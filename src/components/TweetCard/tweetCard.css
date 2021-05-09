@@ -1,0 +1,57 @@
+.tweetcard {
+    width: 500px;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+
+}
+
+.tweetcard__header {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content:flex-start;
+    padding: 2px;
+    background: #fdd;
+}
+
+.tweetcard__avataruser {
+    width: 32px;
+    height: 32px;
+    background: #eff;
+    border-radius: 50%;
+}
+
+.tweetcard__username {
+    font-size: 1.3em;
+    margin: 5px;
+}
+
+.tweetcard__body {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    background: #eee;
+}
+
+.tweetcard__content {
+    font-size: 2em;
+}
+
+.tweetcard__footer {
+    background: #fff;
+    display: flex;
+    font-size: 1.2em;
+}
+
+.tweetcard__likescnt {
+    padding-right: 5px;
+}
+
+.tweetcard__likebtn {
+   background: none;
+   border: none;
+   font-size: inherit;
+   color: #333; 
+}
