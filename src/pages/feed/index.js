@@ -6,44 +6,39 @@ import Tweeter from '../../components/Tweeter';
 
 export default function FeedPage(props) {
 
-    function commitToLocalStorage(tweets) {
-        localStorage.setItem('tweets', JSON.stringify(tweets));
-    }
-    commitToLocalStorage(tweets);
-    
-    const [tweetsData,updateTweetsData] = useState(JSON.parse(localStorage.getItem('tweets')));
-
     function buildTweet(posted_by,tweet_content) {
         return {
             posted_by,
             tweet_content,
             liked_by: [],
-            timestamp: new Date().getTime()
+            timestamp: new Date().getTime().toString()
         };
     }
 
 
     function handleLikeUpdate(event) {
-       const target = event.target.parentNode.parentNode.parentNode;
-       const tweetIdx = tweetsData.findIndex(t => t.timestamp === target.id);
+        const target = event.target.parentNode.parentNode.parentNode;
+        const tweetIdx = tweetsData.findIndex(t => t.timestamp === target.id);
+        const newTweetData = tweetsData.slice();
        
-       const tmp_1 = tweetsData.slice(0,tweetIdx);
-       const tmp_2 = tweetsData.slice(tweetIdx+1, tweetsData.length);
-       const tmp_3 = tweetsData[tweetIdx];
-       
-       tmp_3.liked_by.push('randomUser');
-
-       const newTweetsData = [...tmp_1,...tmp_2,tmp_3];
-       updateTweetsData(newTweetsData);
-       commitToLocalStorage(newTweetsData);
+        newTweetData[tweetIdx].liked_by.push('random_user');
+        updateTweetsData(newTweetData);
 
     }
 
     function handleTweetPosted(tweet) {
-        const newTweetsData = [...tweetsData, buildTweet('random_user',tweet)]
-        updateTweetsData(newTweetsData);
-        commitToLocalStorage(newTweetsData);
+        const newTweetData = tweetsData.slice();
+        newTweetData.push(buildTweet('random_user',tweet));
+        updateTweetsData(newTweetData);
     }
+     
+    
+    const [tweetsData,updateTweetsData] = useState(tweets);
+
+    React.useEffect(()=> {
+        localStorage.setItem('tweets', JSON.stringify(tweetsData));
+    },[tweetsData]);
+
 
     return (
         <div className="userfeed">
